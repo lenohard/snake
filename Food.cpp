@@ -14,9 +14,9 @@ void Food::gen(){
 
 void Food::draw()
 {
-    attron( COLOR_PAIR(FOOD)| A_BLINK );
+    attron( COLOR_PAIR(FOOD));
     mvaddch(pos.first, pos.second, TYPE_FOOD);
-    attroff( COLOR_PAIR(FOOD)| A_BLINK );
+    attroff( COLOR_PAIR(FOOD));
 };
 
 void Food::update(){

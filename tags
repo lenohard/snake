@@ -3,7 +3,7 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_VERSION	5.8	//
 ATTR	Snake.hpp	/^enum ATTR{HEAD=8, BODY, TAIL};$/;"	g
 BG	main.hpp	/^enum TYPE { WALL = 1, STAT, INFO, FOOD, BG };$/;"	e	enum:TYPE
 BODY	Snake.hpp	/^enum ATTR{HEAD=8, BODY, TAIL};$/;"	e	enum:ATTR
@@ -13,45 +13,26 @@ Cols	main.hpp	/^    int Cols;$/;"	m	struct:size
 DIRECT	Snake.hpp	/^enum DIRECT {UP=0,  LEFT, RIGHT, DOWN, last} ;$/;"	g
 DOWN	Snake.hpp	/^enum DIRECT {UP=0,  LEFT, RIGHT, DOWN, last} ;$/;"	e	enum:DIRECT
 Direction	Snake.hpp	/^        enum DIRECT Direction;$/;"	m	class:Snake	typeref:enum:Snake::DIRECT
-Direction	Snake/input.h	/^enum Direction {$/;"	g
-East	Snake/input.h	/^    East = 2,$/;"	e	enum:Direction
-Error	Snake/input.h	/^    Error = -1,$/;"	e	enum:Direction
 FOOD	main.hpp	/^enum TYPE { WALL = 1, STAT, INFO, FOOD, BG };$/;"	e	enum:TYPE
 Food	Food.cpp	/^ Food::Food(){$/;"	f	class:Food
 Food	Food.hpp	/^class Food{$/;"	c
 HEAD	Snake.hpp	/^enum ATTR{HEAD=8, BODY, TAIL};$/;"	e	enum:ATTR
-H_pos	Snake.hpp	/^        postion H_pos; $/;"	m	class:Snake
+H_pos	Snake.hpp	/^        Postion H_pos; $/;"	m	class:Snake
 INFO	main.hpp	/^enum TYPE { WALL = 1, STAT, INFO, FOOD, BG };$/;"	e	enum:TYPE
-INITIAL_SNAKE_LENGTH	Snake/macros.h	15;"	d
 ISLOOP	main.cpp	/^bool   ISLOOP = 1;$/;"	v
 ISSTAT	main.cpp	/^bool ISSTAT = 1;$/;"	v
 LEFT	Snake.hpp	/^enum DIRECT {UP=0,  LEFT, RIGHT, DOWN, last} ;$/;"	e	enum:DIRECT
 Lines	main.hpp	/^    int Lines;$/;"	m	struct:size
-MAP_CHAR	Snake/macros.h	6;"	d
-MAP_END	Snake/macros.h	7;"	d
-MAP_HEIGHT	Snake/macros.h	5;"	d
-MAP_WIDTH	Snake/macros.h	4;"	d
 MAX_LENGTH	main.hpp	16;"	d
 Measure	main.hpp	/^typedef struct size Measure;$/;"	t	typeref:struct:size
-North	Snake/input.h	/^    North = 1,$/;"	e	enum:Direction
-PAUSE_LENGTH	Snake/macros.h	17;"	d
+Postion	Snake.hpp	/^typedef std::pair<int, int> Postion;$/;"	t
 Postion	main.hpp	/^typedef std::pair<int, int> Postion;$/;"	t
 RIGHT	Snake.hpp	/^enum DIRECT {UP=0,  LEFT, RIGHT, DOWN, last} ;$/;"	e	enum:DIRECT
-SNAKE_CHAR	Snake/macros.h	8;"	d
-SNAKE_FOOD_CHAR	Snake/macros.h	13;"	d
-SNAKE_HEAD_EAST	Snake/macros.h	11;"	d
-SNAKE_HEAD_NORTH	Snake/macros.h	10;"	d
-SNAKE_HEAD_SOUTH	Snake/macros.h	12;"	d
-SNAKE_HEAD_WEST	Snake/macros.h	9;"	d
 STAT	main.hpp	/^enum TYPE { WALL = 1, STAT, INFO, FOOD, BG };$/;"	e	enum:TYPE
-Snake	Snake.cpp	/^Snake::Snake(){$/;"	f	class:Snake
+Snake	Snake.hpp	/^        Snake(){}$/;"	f	class:Snake
 Snake	Snake.hpp	/^        Snake(int x, int y){H_pos.first = x; H_pos.second = y;snake.push_back(H_pos);}$/;"	f	class:Snake
 Snake	Snake.hpp	/^class Snake {$/;"	c
-Snake	Snake/snake.cpp	/^Snake::Snake(void)$/;"	f	class:Snake
-Snake	Snake/snake.h	/^class Snake$/;"	c
-SnakeMap	Snake/snake_map.cpp	/^SnakeMap::SnakeMap(Snake *snake)$/;"	f	class:SnakeMap
-SnakeMap	Snake/snake_map.h	/^class SnakeMap$/;"	c
-South	Snake/input.h	/^    South = 3$/;"	e	enum:Direction
+Snake_start	Snake.cpp	/^void Snake::Snake_start(){$/;"	f	class:Snake
 Stat	Stat.cpp	/^ Stat::Stat(int lines, int cols, int x, int y)$/;"	f	class:Stat
 Stat	Stat.cpp	/^Stat::Stat(Postion& l, Measure& m)$/;"	f	class:Stat
 Stat	Stat.cpp	/^Stat::Stat(Postion& left_top, Postion& right_down)$/;"	f	class:Stat
@@ -67,83 +48,42 @@ Wall	Wall.hpp	/^        Wall(){ horizon_shape = "=" ;}$/;"	f	class:Wall
 Wall	Wall.hpp	/^        Wall(const char* s){horizon_shape = s;}$/;"	f	class:Wall
 Wall	Wall.hpp	/^class Wall{$/;"	c
 Welcome	main.cpp	/^void Welcome(vector<string>& w, vector<string>& op)$/;"	f
-West	Snake/input.h	/^    West = 0,$/;"	e	enum:Direction
 _FOOD_HPP	Food.hpp	2;"	d
 _MAIN_HPP	main.hpp	2;"	d
 _SNACK_HPP	Wall.hpp	2;"	d
 _SNAKE_HPP	Snake.hpp	2;"	d
-_input_h	Snake/input.h	2;"	d
-_macros_h	Snake/macros.h	2;"	d
-_snake_h	Snake/snake.h	2;"	d
-_snake_map_h	Snake/snake_map.h	2;"	d
 ch	main.cpp	/^int ch;$/;"	v
-clear_map	Snake/snake_map.cpp	/^void clear_map(char map_array[MAP_HEIGHT][MAP_WIDTH])$/;"	f
-clear_snake_world	Snake/snake.cpp	/^void Snake::clear_snake_world(void)$/;"	f	class:Snake
-direction	Snake/snake.h	/^  enum Direction direction;$/;"	m	class:Snake	typeref:enum:Snake::Direction
 draw	Food.cpp	/^void Food::draw()$/;"	f	class:Food
 draw	Snake.cpp	/^void Snake::draw(){$/;"	f	class:Snake
 draw	Wall.cpp	/^void Wall::draw()const{$/;"	f	class:Wall
-food_eaten	Snake/snake.h	/^  bool food_eaten;$/;"	m	class:Snake
-game_over	Snake/main.cpp	/^void game_over()$/;"	f
 gen	Food.cpp	/^void Food::gen(){$/;"	f	class:Food
-get_direction	Snake/snake.cpp	/^enum Direction Snake::get_direction(void)$/;"	f	class:Snake
-get_input	Snake/input.cpp	/^enum Direction get_input()$/;"	f
 goon	Snake.cpp	/^void Snake::goon(){$/;"	f	class:Snake
 grow_go	Snake.cpp	/^void Snake::grow_go(){$/;"	f	class:Snake
 horizon_shape	Wall.hpp	/^        const char* horizon_shape;$/;"	m	class:Wall
-initialize	Snake/main.cpp	/^void initialize()$/;"	f
-initialize_snake	Snake/snake.cpp	/^void Snake::initialize_snake(void)$/;"	f	class:Snake
-input_enter_off	Snake/input.cpp	/^void input_enter_off()$/;"	f
-input_enter_on	Snake/input.cpp	/^void input_enter_on()$/;"	f
-input_init	Snake/input.cpp	/^void input_init()$/;"	f
-input_thread	Snake/snake.h	/^  pthread_t input_thread;$/;"	m	class:Snake
-input_thread_work	Snake/snake.cpp	/^void *input_thread_work(void *arg)$/;"	f
-is_dead	Snake/snake.h	/^  bool is_dead;$/;"	m	class:Snake
-is_game_end	Snake/main.cpp	/^bool is_game_end()$/;"	f
+if_self_eating	Snake.cpp	/^bool Snake::if_self_eating()$/;"	f	class:Snake
+ifshow	Stat.hpp	/^    bool ifshow = 1;$/;"	m	class:Stat
 is_tran	Wall.hpp	/^        bool is_tran = 1;$/;"	m	class:Wall
 ishit	Snake.cpp	/^bool Snake::ishit(){$/;"	f	class:Snake
 isout	Stat.cpp	/^bool Stat::isout(Postion& p)$/;"	f	class:Stat
-isselfeat	Snake.cpp	/^bool Snake::isselfeat(){$/;"	f	class:Snake
 last	Snake.hpp	/^enum DIRECT {UP=0,  LEFT, RIGHT, DOWN, last} ;$/;"	e	enum:DIRECT
-length	Snake/snake.h	/^  int length;$/;"	m	class:Snake
 lt	Stat.hpp	/^    Postion lt;$/;"	m	class:Stat
-main	Snake/main.cpp	/^int main()$/;"	f
 main	main.cpp	/^int main(){$/;"	f
-map_array	Snake/snake_map.h	/^  char map_array[MAP_HEIGHT][MAP_WIDTH];$/;"	m	class:SnakeMap
 measure	Stat.cpp	/^Measure Stat::measure()$/;"	f	class:Stat
-next_direction	Snake/snake.h	/^  enum Direction next_direction;$/;"	m	class:Snake	typeref:enum:Snake::Direction
 nrand	main.cpp	/^int nrand(int n)$/;"	f
 op	main.cpp	/^vector<string> op = {$/;"	v
-operator ==	Snake.cpp	/^inline bool operator==(const postion& ps1, const postion& ps2)$/;"	f
+operator ==	Snake.cpp	/^inline bool operator==(const Postion& ps1, const Postion& ps2)$/;"	f
 pos	Food.hpp	/^        std::pair<int, int> pos;$/;"	m	class:Food
-postion	Snake.hpp	/^typedef std::pair<int, int> postion;$/;"	t
 rand_pos	main.cpp	/^pair<int, int> rand_pos(int xlimit, int ylimit)$/;"	f
 rd	Stat.hpp	/^    Postion rd;$/;"	m	class:Stat
-redraw	Snake/snake_map.cpp	/^void SnakeMap::redraw(void)$/;"	f	class:SnakeMap
 score	main.cpp	/^int score = 0;$/;"	v
-set_snake_food	Snake/snake.cpp	/^void Snake::set_snake_food(pair<int, int> snake_food)$/;"	f	class:Snake
 size	main.hpp	/^struct size{$/;"	s
-snake	Snake.hpp	/^        std::vector<postion> snake;$/;"	m	class:Snake
-snake	Snake/main.cpp	/^SnakeMap snake_map(&snake);$/;"	v
-snake	Snake/snake_map.h	/^  Snake *snake;$/;"	m	class:SnakeMap
-snake_food	Snake/snake.h	/^  pair<int, int> snake_food;$/;"	m	class:Snake
-snake_food	Snake/snake_map.h	/^  pair<int, int> snake_food;$/;"	m	class:SnakeMap
-snake_head	Snake/snake.h	/^  pair<int, int> snake_head;$/;"	m	class:Snake
-snake_parts	Snake/snake.h	/^  vector<pair<int, int>> snake_parts;$/;"	m	class:Snake
-snake_sema	Snake/snake.h	/^  sem_t snake_sema;$/;"	m	class:Snake
-snake_world_array	Snake/snake.h	/^  int snake_world_array[MAP_HEIGHT][MAP_WIDTH];$/;"	m	class:Snake
-start_game	Snake/main.cpp	/^void start_game()$/;"	f
+sk	main.cpp	/^class Snake sk;$/;"	v	typeref:class:Snake
+snake	Snake.hpp	/^        std::vector<Postion> snake;$/;"	m	class:Snake
+start	main.cpp	/^clock_t start;$/;"	v
 stat	Stat.hpp	/^    WINDOW* stat;$/;"	m	class:Stat
 stat_draw	Stat.cpp	/^void Stat::stat_draw()$/;"	f	class:Stat
-t	Snake/input.cpp	/^struct termios t;$/;"	v	typeref:struct:termios
-trail	Snake.hpp	/^        postion trail;$/;"	m	class:Snake
+step_counter	Snake.hpp	/^    int step_counter;$/;"	m	class:Snake
+trail	Snake.hpp	/^        Postion trail;$/;"	m	class:Snake
 update	Food.cpp	/^void Food::update(){$/;"	f	class:Food
-update_direction	Snake/snake.cpp	/^void Snake::update_direction(enum Direction direction)$/;"	f	class:Snake
-update_movement	Snake/snake.cpp	/^void Snake::update_movement(void)$/;"	f	class:Snake
-update_next_direction	Snake/snake.cpp	/^void Snake::update_next_direction(enum Direction direction)$/;"	f	class:Snake
-update_score	Snake/snake_map.cpp	/^void SnakeMap::update_score(void)$/;"	f	class:SnakeMap
-update_snake_food	Snake/snake_map.cpp	/^void SnakeMap::update_snake_food(bool force_update)$/;"	f	class:SnakeMap
-update_snake_head	Snake/snake_map.cpp	/^void update_snake_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Snake *snake)$/;"	f
-validate_direction	Snake/snake.cpp	/^void Snake::validate_direction(void)$/;"	f	class:Snake
-velocity	main.cpp	/^useconds_t velocity = 200000;$/;"	v
+velocity	main.cpp	/^useconds_t velocity = 100000;$/;"	v
 wel	main.cpp	/^vector<string> wel = {$/;"	v

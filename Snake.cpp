@@ -93,14 +93,14 @@ void Snake::draw(){
     vector<Postion>::const_iterator it = snake.begin(); 
     mvaddch((*it).first, (*it).second, TYPE_H);
     attroff(COLOR_PAIR(HEAD) | A_STANDOUT);
-    attron(COLOR_PAIR(BODY) | A_DIM);
+    attron(COLOR_PAIR(BODY) );
 
     for(it = it+1; it != snake.end(); it++)
     {   
         mvaddch((*it).first, (*it).second, TYPE_B);
     }
 
-    attroff(COLOR_PAIR(BODY) | A_DIM);
+    attroff(COLOR_PAIR(BODY) );
     refresh();
 
 };

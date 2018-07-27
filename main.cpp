@@ -22,7 +22,7 @@ vector<string> wel = {
 };
 
 bool ISSTAT = 1;
-clock_t start;
+int  start;
 
 vector<string> op = {
     "OPERATIONS:",
@@ -49,7 +49,6 @@ int main(){
     cbreak();
     start_color();
     curs_set(0);
-    nodelay(stdscr, TRUE);
 
 
     keypad(stdscr, TRUE);
@@ -60,6 +59,7 @@ int main(){
     init_pair(INFO, COLOR_CYAN, COLOR_BLACK);
     init_pair(STAT, COLOR_RED, COLOR_BLACK);
     init_pair(FOOD, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(ERROR, COLOR_BLACK, COLOR_RED);
 
     Welcome(wel, op);
 
@@ -77,7 +77,6 @@ int main(){
             return 0;
         }
     }
-    start = clock();
 
     class Wall wall("-");
     clear();
@@ -86,6 +85,35 @@ int main(){
     sk.Snake_start();
     fd.draw();
     class Stat st(5, 15, 1, 1);
+    attron(COLOR_PAIR(HEAD) | A_STANDOUT);
+    vector<Postion>::const_iterator it = sk.snake.begin(); 
+    mvaddch((*it).first, (*it).second, TYPE_H);
+    attroff(COLOR_PAIR(HEAD) | A_STANDOUT);
+    refresh();
+
+    nodelay(stdscr, FALSE);
+    ch = getch();
+    switch(ch)
+    {
+        case KEY_UP:
+            sk.Direction = UP;
+            break;
+        case KEY_DOWN:
+            sk.Direction = DOWN;
+            break;
+        case KEY_LEFT:
+            sk.Direction = LEFT;
+            break;
+        case KEY_RIGHT:
+            sk.Direction = RIGHT;
+            break;
+        default:
+            break;
+    }
+
+    start = time(NULL);
+    nodelay(stdscr, TRUE);
+
     while(1)
     {
         ch = getch();
@@ -140,6 +168,7 @@ int main(){
             case 'n':
                 nodelay(stdscr, TRUE);
                 break;
+
             default:
                 break;
         }
@@ -168,6 +197,11 @@ int main(){
         usleep(velocity);
         if( sk.if_self_eating() )
         {
+            attron(COLOR_PAIR(ERROR | A_BLINK));
+            mvaddch(sk.H_pos.first, sk.H_pos.second, 'x');
+            attroff(COLOR_PAIR(ERROR | A_BLINK));
+            refresh();
+            sleep(5);
             break;
         }
 

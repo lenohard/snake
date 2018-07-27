@@ -26,7 +26,7 @@ extern bool ISLOOP ;
 extern class Snake sk;
 extern useconds_t velocity;
 extern int score;
-enum TYPE { WALL = 1, STAT, INFO, FOOD, BG };
+enum TYPE { WALL = 1, STAT, INFO, FOOD, BG, ERROR };
 
 pair<int, int> rand_pos(int, int);
 int nrand(int);

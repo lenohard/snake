@@ -46,11 +46,11 @@ Measure Stat::measure()
 
 void Stat::stat_draw()
 {
-    clock_t end = clock();
-    int sec = ( end-start )/CLOCKS_PER_SEC;
+    int end = time(NULL);
+    int sec = ( end-start );
     int h = sec/3600;
-    int m = (sec - h*3600)%60;
-    int s = sec;
+    int m = (sec - h*3600)/60;
+    int s = sec%60;
     mvwprintw(stat, 0, 0, "V(>5000): %-10u", velocity);
     mvwprintw(stat, 1, 0, "Body_len: %-10d", sk.snake.size());
     mvwprintw(stat, 2, 0, "Score   : %-10d", score);
